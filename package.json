@@ -3,13 +3,18 @@
   "private": true,
   "version": "1.0.0",
   "description": "A simple web component",
-  "main": "my-element.js",
-  "module": "my-element.js",
+  "main": "build/orion-menu.min.js",
+  "files": [
+    "build/orion-menu.d.ts",
+    "build/orion-menu.d.ts.map",
+    "build/orion-menu.min.js"
+  ],
+  "module": "orion-menu.js",
   "type": "module",
   "scripts": {
     "build": "tsc",
     "build:watch": "tsc --watch",
-    "clean": "rimraf my-element.{d.ts,d.ts.map,js,js.map} test/my-element.{d.ts,d.ts.map,js,js.map} test/my-element_test.{d.ts,d.ts.map,js,js.map}",
+    "clean": "rimraf orion-menu.{d.ts,d.ts.map,js,js.map} test/orion-menu.{d.ts,d.ts.map,js,js.map} test/orion-menu_test.{d.ts,d.ts.map,js,js.map}",
     "lint": "npm run lint:lit-analyzer && npm run lint:eslint",
     "lint:eslint": "eslint 'src/**/*.ts'",
     "lint:lit-analyzer": "lit-analyzer",
@@ -18,7 +23,7 @@
     "docs:clean": "rimraf docs",
     "docs:gen": "eleventy --config=.eleventy.cjs",
     "docs:gen:watch": "eleventy --config=.eleventy.cjs --watch",
-    "docs:build": "rollup -c --file docs/my-element.bundled.js",
+    "docs:build": "rollup -c --file docs/orion-menu.bundled.js",
     "docs:assets": "cp node_modules/prismjs/themes/prism-okaidia.css docs/",
     "docs:serve": "wds --root-dir=docs --node-resolve --watch",
     "analyze": "cem analyze --litelement --globs \"src/**/*.ts\"",
@@ -30,7 +35,8 @@
     "test:watch": "wtr --watch",
     "test:prod": "MODE=prod wtr",
     "test:prod:watch": "MODE=prod wtr --watch",
-    "checksize": "rollup -c ; cat my-element.bundled.js | gzip -9 | wc -c ; rm my-element.bundled.js"
+    "checksize": "rollup -c ; cat orion-menu.bundled.js | gzip -9 | wc -c ; rm orion-menu.bundled.js",
+    "build-prod": "rollup -c --environment INCLUDE_DEPS,BUILD:production"
   },
   "keywords": [
     "web-components",
@@ -41,7 +47,8 @@
   "author": "Google LLC",
   "license": "BSD-3-Clause",
   "dependencies": {
-    "lit": "^2.0.0"
+    "lit": "^2.0.0",
+    "rollup-plugin-typescript2": "^0.31.1"
   },
   "devDependencies": {
     "@11ty/eleventy": "^0.12.1",

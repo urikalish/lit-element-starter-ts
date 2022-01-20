@@ -1,20 +1,20 @@
 ---
 layout: example.11ty.cjs
-title: <my-element> ⌲ Examples ⌲ Basic
+title: <orion-menu> ⌲ Examples ⌲ Basic
 tags: example
 name: Basic
 description: A basic example
 ---
 
 <style>
-  my-element p {
+  orion-menu p {
     border: solid 1px blue;
     padding: 8px;
   }
 </style>
-<my-element>
+<orion-menu>
   <p>This is child content</p>
-</my-element>
+</orion-menu>
 
 <h3>CSS</h3>
 
@@ -28,7 +28,7 @@ p {
 <h3>HTML</h3>
 
 ```html
-<my-element>
+<orion-menu>
   <p>This is child content</p>
-</my-element>
+</orion-menu>
 ```
